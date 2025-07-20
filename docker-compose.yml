@@ -1,0 +1,26 @@
+version: "3.8"
+services:
+
+  eureka-server:
+    build: ./eureka-server
+    container_name: eureka-server
+    ports:
+      - "8761:8761"
+    networks:
+      - microservice-net
+
+  auth-service:
+    build: ./auth-service
+    container_name: auth-service
+    ports:
+      - "8081:8081"
+    environment:
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://eureka-server:8761/eureka
+    depends_on:
+      - eureka-server
+    networks:
+      - microservice-net
+
+networks:
+  microservice-net:
+    driver: bridge
