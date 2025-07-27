@@ -1,5 +1,13 @@
 #!/bin/sh
 
+echo "Building shared library"
+
+cd ./shared-lib || exit 1
+
+./mvnw clean package -DskipTests || exit 1
+
+cd ..
+
 echo "Building Auth Service" 
 
 
