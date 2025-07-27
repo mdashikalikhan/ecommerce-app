@@ -1,6 +1,5 @@
-package com.ecommerce.auth_service.component;
+package com.common.sharedLib.component;
 
-import io.jsonwebtoken.JwtParser;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
 import org.springframework.stereotype.Component;

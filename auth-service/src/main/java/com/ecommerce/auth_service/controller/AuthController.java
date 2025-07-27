@@ -1,6 +1,6 @@
 package com.ecommerce.auth_service.controller;
 
-import com.ecommerce.auth_service.component.JwtUtil;
+import com.common.sharedLib.component.JwtUtil;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

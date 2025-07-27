@@ -13,7 +13,7 @@ echo Building shared library
 
 cd shared-lib
 
-call mvnw clean package -DskipTests
+call mvnw clean install
 
 if errorlevel 1 exit /b 1
 
@@ -21,6 +21,13 @@ if errorlevel 1 exit /b 1
 echo Building Auth Service
 
 cd auth-service
+call mvnw clean package -DskipTests
+if errorlevel 1 exit /b 1
+cd ..
+
+echo Building Product Service
+
+cd product-service
 call mvnw clean package -DskipTests
 if errorlevel 1 exit /b 1
 cd ..
