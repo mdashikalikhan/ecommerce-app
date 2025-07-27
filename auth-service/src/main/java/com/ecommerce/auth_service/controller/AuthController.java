@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import reactor.core.publisher.Mono;
 
 import java.util.Map;
 
@@ -18,16 +19,16 @@ public class AuthController {
     private final JwtUtil jwtUtil;
 
     @PostMapping("/login")
-    public ResponseEntity<Map<String, String>> login(@RequestBody Map<String, String> payload) {
+    public Mono< ResponseEntity<Map<String, String>>> login(@RequestBody Map<String, String> payload) {
         String username = payload.get("username");
         String password = payload.get("password");
 
         // For demo: hardcoded credentials
         if ("admin".equals(username) && "password".equals(password)) {
             String token = jwtUtil.generateToken(username);
-            return ResponseEntity.ok(Map.of("accessToken", token));
+            return Mono.just(ResponseEntity.ok(Map.of("accessToken", token)));
         }
 
-        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+        return Mono.just(ResponseEntity.status(HttpStatus.UNAUTHORIZED).build());
     }
 }

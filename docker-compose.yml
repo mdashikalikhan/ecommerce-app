@@ -14,8 +14,6 @@ services:
     container_name: auth-service
     ports:
       - "8081:8081"
-    environment:
-      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://eureka-server:8761/eureka
     depends_on:
       - eureka-server
     networks:
