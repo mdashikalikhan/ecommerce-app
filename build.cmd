@@ -32,6 +32,15 @@ call mvnw clean package -DskipTests
 if errorlevel 1 exit /b 1
 cd ..
 
+
+echo Building API Gateway
+
+cd api-gateway
+call mvnw clean package -DskipTests
+if errorlevel 1 exit /b 1
+cd ..
+
+
 echo Building Eureka Service
 
 cd eureka-server

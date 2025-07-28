@@ -26,6 +26,15 @@ cd ./product-service || exit 1
 
 cd ..
 
+echo "Building API Gateway" 
+
+
+cd ./api-gateway || exit 1
+./mvnw clean package -DskipTests || exit 1
+
+
+cd ..
+
 echo "Building Eureka Service" 
 
 cd ./eureka-server || exit 1

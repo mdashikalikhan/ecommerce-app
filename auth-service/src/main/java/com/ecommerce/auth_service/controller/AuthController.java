@@ -23,6 +23,8 @@ public class AuthController {
         String username = payload.get("username");
         String password = payload.get("password");
 
+        System.out.println(username);
+        System.out.println(password);
         // For demo: hardcoded credentials
         if ("admin".equals(username) && "password".equals(password)) {
             String token = jwtUtil.generateToken(username);
